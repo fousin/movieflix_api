@@ -35,4 +35,5 @@ public class StreamingService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
 }
