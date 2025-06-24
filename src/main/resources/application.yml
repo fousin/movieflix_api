@@ -13,3 +13,8 @@ spring:
 
   flyway:
     enabled: true
+
+movieflix:
+  security:
+    jwt:
+      secret: "MYHASHEDKEY"
