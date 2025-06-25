@@ -5,6 +5,7 @@ import dev.fousin.movieflix.controller.response.MovieResponse;
 import dev.fousin.movieflix.entity.Movie;
 import dev.fousin.movieflix.mapper.MovieMapper;
 import dev.fousin.movieflix.service.MovieService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/movieflix/movie")
+@Tag(name = "Movie", description = "endpoints para gerenciamento de filmes")
 public class MovieController {
     @Autowired
     private MovieService service;
