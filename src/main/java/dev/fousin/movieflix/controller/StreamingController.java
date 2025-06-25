@@ -4,6 +4,7 @@ import dev.fousin.movieflix.controller.request.StreamingRequest;
 import dev.fousin.movieflix.controller.response.StreamingResponse;
 import dev.fousin.movieflix.mapper.StreamingMapper;
 import dev.fousin.movieflix.service.StreamingService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StreamingController {
     private final StreamingService service;
-    
+
     @GetMapping
     public ResponseEntity<List<StreamingResponse>> getAll() {
         List<StreamingResponse> list = service.findAll();
@@ -24,7 +25,7 @@ public class StreamingController {
     }
 
     @PostMapping
-    public ResponseEntity<StreamingResponse> save(@RequestBody StreamingRequest request) {
+    public ResponseEntity<StreamingResponse> save(@Valid @RequestBody StreamingRequest request) {
         StreamingResponse savedStreaming = service.save(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedStreaming);
     }
